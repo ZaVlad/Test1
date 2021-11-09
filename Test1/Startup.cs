@@ -1,5 +1,7 @@
+using AutoMapper;
 using DataAccess.MsSql;
 using Infrastructure.Interfaces.DataAccess;
+using MediatR;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -11,6 +13,8 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using UseCases;
+using UseCases.Persons.Queries.GetList;
 
 namespace Test1
 {
@@ -28,10 +32,13 @@ namespace Test1
         {
             // Variables
             var connection = Configuration.GetConnectionString("DefaultConnection");
+            var mapperConfig = new MapperConfiguration(
+                mc => mc.AddProfile(new MapperProfile()));
 
             //Application
-
+            services.AddSingleton(mapperConfig.CreateMapper());
             // Infrastructure
+            services.AddMediatR(typeof(GetPeopleListQuery));
             services.AddControllersWithViews();
             services.AddDbContext<IDbContext, AppDbContext>(options => options
              .UseSqlServer(connection, b => b.MigrationsAssembly("DataAccess.MsSql")));

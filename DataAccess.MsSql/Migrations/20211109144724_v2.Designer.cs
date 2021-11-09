@@ -4,14 +4,16 @@ using DataAccess.MsSql;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace DataAccess.MsSql.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    partial class AppDbContextModelSnapshot : ModelSnapshot
+    [Migration("20211109144724_v2")]
+    partial class v2
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -47,35 +49,6 @@ namespace DataAccess.MsSql.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Person");
-
-                    b.HasData(
-                        new
-                        {
-                            Id = 1,
-                            DateOfBirth = new DateTime(2021, 11, 9, 16, 53, 43, 262, DateTimeKind.Local).AddTicks(8759),
-                            Married = true,
-                            Name = "Vlad",
-                            Phone = "0500653293",
-                            Salary = 30.23m
-                        },
-                        new
-                        {
-                            Id = 2,
-                            DateOfBirth = new DateTime(2004, 12, 23, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Married = false,
-                            Name = "Oleg",
-                            Phone = "0500653293",
-                            Salary = 41.23m
-                        },
-                        new
-                        {
-                            Id = 3,
-                            DateOfBirth = new DateTime(2021, 11, 9, 16, 53, 43, 264, DateTimeKind.Local).AddTicks(6997),
-                            Married = true,
-                            Name = "Ivan",
-                            Phone = "0523673293",
-                            Salary = 12.23m
-                        });
                 });
 #pragma warning restore 612, 618
         }
