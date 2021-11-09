@@ -33,7 +33,11 @@ namespace Test1.Controllers
         public async Task<IActionResult> GetList([FromQuery]PersonFilterRequestModel person)
         {
             var people = await _sender.Send(ConvertToGetPeopleListQuery(person));
-            ViewBag.Sort = person;
+            ViewBag.IdSort = person.IdSort;
+            ViewBag.NameSort = person.NameSort;
+            ViewBag.DateOfBirthSort = person.DateOfBirthSort;
+            ViewBag.MarriedSort = person.MarriedSort;
+            ViewBag.SalarySort = person.SalarySort;
             return View(people);
         }
 

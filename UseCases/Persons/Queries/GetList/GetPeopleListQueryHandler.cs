@@ -27,13 +27,13 @@ namespace UseCases.Persons.Queries.GetList
             var people = _dbContext.Person.AsQueryable();
             if (request != null)
             {
-                GetFilterAndSort(people, request);
+                GetFilterAndSort(ref people, request);
             }
             return  _mapper.Map<List<PersonDto>>(await people.ToListAsync());
 
         }
 
-        private void GetFilterAndSort(IQueryable<Person> queryable, GetPeopleListQuery filterSortModel)
+        private void GetFilterAndSort(ref IQueryable<Person> queryable, GetPeopleListQuery filterSortModel)
         {
             if (filterSortModel.DateOfBirthFilter != null)
             {

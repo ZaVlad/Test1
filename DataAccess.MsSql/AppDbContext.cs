@@ -28,8 +28,8 @@ namespace DataAccess.MsSql
         {
             modelBuilder.Entity<Person>().HasData(new List<Person>()
             {
-                new Person(){Id= 1,DateOfBirth = DateTime.Now,Married = true,Name = "Vlad",Phone = "0500653293",Salary = 30.23M },
-                new Person(){Id= 2,DateOfBirth = new DateTime(2004,12,23),Married = false,Name = "Oleg",Phone = "0500653293",Salary = 41.23M },
+                new Person(){Id= 1,DateOfBirth = new DateTime(2004,9,28),Married = false,Name = "Vlad",Phone = "0500653293",Salary = 500.23M },
+                new Person(){Id= 2,DateOfBirth = new DateTime(2008,12,23),Married = false,Name = "Oleg",Phone = "0500653293",Salary = 41.23M },
                 new Person(){Id= 3,DateOfBirth = DateTime.Now,Married = true,Name = "Ivan",Phone = "0523673293",Salary = 12.23M }
             });
         }

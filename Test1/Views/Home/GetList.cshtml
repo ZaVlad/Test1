@@ -13,53 +13,94 @@
     <thead>
         <tr>
             <th>
-                <a asp-action="GetList" asp-route-IdSort="2"> @Html.DisplayNameFor(model => model.Id)</a>
+                @{
+                    int counterIdSort = ++ViewBag.IdSort;
+                    if (counterIdSort > 2)
+                    {
+                        ViewBag.IdSort = 1;
+                        counterIdSort = ViewBag.IdSort;
+                    }
+                }
+                <a asp-action="GetList" asp-route-IdSort="@counterIdSort"> @Html.DisplayNameFor(model => model.Id)</a>
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Name)
+                @{
+                    int counterNameSort = ++ViewBag.NameSort;
+                    if (counterNameSort > 2)
+                    {
+                        ViewBag.NameSort = 1;
+                        counterNameSort = ViewBag.NameSort;
+                    }
+                }
+                <a asp-action="GetList" asp-route-NameSort="@counterNameSort"> @Html.DisplayNameFor(model => model.Name)</a>
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.DateOfBirth)
+                @{
+                    int counterDateOfBirth = ++ViewBag.DateOfBirthSort;
+                    if (counterDateOfBirth > 2)
+                    {
+                        ViewBag.DateOfBirthSort = 1;
+                        counterDateOfBirth = ViewBag.DateOfBirthSort;
+                    }
+                }
+                <a asp-action="GetList" asp-route-DateOfBirthSort="@counterDateOfBirth"> @Html.DisplayNameFor(model => model.DateOfBirth)</a>
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Married)
+                @{
+                    int counterMarried = ++ViewBag.MarriedSort;
+                    if (counterMarried > 2)
+                    {
+                        ViewBag.MarriedSort = 1;
+                        counterMarried = ViewBag.MarriedSort;
+                    }
+                }
+                <a asp-action="GetList" asp-route-MarriedSort="@counterMarried"> @Html.DisplayNameFor(model => model.Married)</a>
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.Phone)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Salary)
+                @{
+                    int counterSalary = ++ViewBag.SalarySort;
+                    if (counterSalary > 2)
+                    {
+                        ViewBag.SalarySort = 1;
+                        counterSalary = ViewBag.SalarySort;
+                    }
+                }
+                <a asp-action="GetList" asp-route-SalarySort="@counterSalary"> @Html.DisplayNameFor(model => model.Salary)</a>
             </th>
             <th></th>
         </tr>
     </thead>
     <tbody>
-@foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Id)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Name)
-            </td>
-            <td>
-                @item.DateOfBirth.ToString("yyyy-MM-dd")
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Married)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem =>item.Phone)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Salary)
-            </td>
-            <td>
-                @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
-                @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
-                @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
-            </td>
-        </tr>
-}
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Id)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Name)
+                </td>
+                <td>
+                    @item.DateOfBirth.ToString("yyyy-MM-dd")
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Married)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Phone)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Salary)$
+                </td>
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
+                    @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
+                    @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+                </td>
+            </tr>
+        }
     </tbody>
 </table>
