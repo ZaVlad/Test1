@@ -3,21 +3,23 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.31424.327
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Test1", "Test1\Test1.csproj", "{88B1E53C-1F61-4ECC-A312-1136860B310C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Test1", "Test1\Test1.csproj", "{88B1E53C-1F61-4ECC-A312-1136860B310C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Entities", "Entities\Entities.csproj", "{509D9CC2-08B3-4848-97E9-EA6FE08455A0}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Entities", "Entities\Entities.csproj", "{509D9CC2-08B3-4848-97E9-EA6FE08455A0}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Domain", "Domain", "{7B9C9C52-CC30-484F-927B-8EFA8DE76C49}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Infrastructure.Interfaces", "Infrastructure.Interfaces", "{43BC76AC-5D35-4531-8C7F-3C83F70BA0D2}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Infrastructure.Interfaces", "Infrastructure.Interfaces\Infrastructure.Interfaces.csproj", "{473C3178-E790-4AC4-8DDC-08CBE94831EE}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Infrastructure.Interfaces", "Infrastructure.Interfaces\Infrastructure.Interfaces.csproj", "{473C3178-E790-4AC4-8DDC-08CBE94831EE}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Application", "Application", "{9AA87FBF-5B9E-4FD8-BFFA-14DA1AA7C403}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UseCases", "UseCases\UseCases.csproj", "{5A2DDD3A-0F12-4DDF-9340-FCFDF27C9E9F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UseCases", "UseCases\UseCases.csproj", "{5A2DDD3A-0F12-4DDF-9340-FCFDF27C9E9F}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Infrastructure.Implementation", "Infrastructure.Implementation", "{CBF29D37-4D04-4706-8A68-86536DAD0524}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataAccess.MsSql", "DataAccess.MsSql\DataAccess.MsSql.csproj", "{5FADF9E6-57A6-4E19-944D-3FB965D3DF7C}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -41,6 +43,10 @@ Global
 		{5A2DDD3A-0F12-4DDF-9340-FCFDF27C9E9F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5A2DDD3A-0F12-4DDF-9340-FCFDF27C9E9F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5A2DDD3A-0F12-4DDF-9340-FCFDF27C9E9F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5FADF9E6-57A6-4E19-944D-3FB965D3DF7C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5FADF9E6-57A6-4E19-944D-3FB965D3DF7C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5FADF9E6-57A6-4E19-944D-3FB965D3DF7C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5FADF9E6-57A6-4E19-944D-3FB965D3DF7C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -49,6 +55,7 @@ Global
 		{509D9CC2-08B3-4848-97E9-EA6FE08455A0} = {7B9C9C52-CC30-484F-927B-8EFA8DE76C49}
 		{473C3178-E790-4AC4-8DDC-08CBE94831EE} = {43BC76AC-5D35-4531-8C7F-3C83F70BA0D2}
 		{5A2DDD3A-0F12-4DDF-9340-FCFDF27C9E9F} = {9AA87FBF-5B9E-4FD8-BFFA-14DA1AA7C403}
+		{5FADF9E6-57A6-4E19-944D-3FB965D3DF7C} = {CBF29D37-4D04-4706-8A68-86536DAD0524}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {5C63C32F-7F10-44A9-AF88-54ADB9F5298E}
