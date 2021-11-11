@@ -4,14 +4,16 @@ using DataAccess.MsSql;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace DataAccess.MsSql.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    partial class AppDbContextModelSnapshot : ModelSnapshot
+    [Migration("20211109210604_v5")]
+    partial class v5
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -61,7 +63,7 @@ namespace DataAccess.MsSql.Migrations
                         new
                         {
                             Id = 2,
-                            DateOfBirth = new DateTime(2003, 12, 28, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            DateOfBirth = new DateTime(2008, 12, 23, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Married = false,
                             Name = "Xenia",
                             Phone = "0669925380",
@@ -70,7 +72,7 @@ namespace DataAccess.MsSql.Migrations
                         new
                         {
                             Id = 3,
-                            DateOfBirth = new DateTime(2021, 11, 9, 23, 6, 38, 498, DateTimeKind.Local).AddTicks(8402),
+                            DateOfBirth = new DateTime(2021, 11, 9, 23, 6, 4, 69, DateTimeKind.Local).AddTicks(3450),
                             Married = true,
                             Name = "Ivan",
                             Phone = "0523673293",
