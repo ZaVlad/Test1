@@ -6,8 +6,8 @@ using System.Threading.Tasks;
 
 namespace Test1.Models.RequestModels.Persons
 {
-    public class PersonCreateRequestModel
+    public class PersonCreateByFileRequestModel
     {
-        public IFormFile FileUpload{ get; set; }
+        public IFormFile File{ get; set; }
     }
 }

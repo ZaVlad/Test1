@@ -1,4 +1,4 @@
-﻿@model Test1.Models.RequestModels.Persons.PersonCreateRequestModel;
+﻿@model Test1.Models.RequestModels.Persons.PersonCreateByFileRequestModel;
 
 @{
     ViewData["Title"] = "Create";
@@ -11,9 +11,9 @@
         <form asp-action="Create" enctype="multipart/form-data">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
-                <label asp-for="FileUpload" class="control-label">File with people</label>
-                <input asp-for="FileUpload" class="form-control" />
-                <span asp-validation-for="FileUpload" class="text-danger"></span>
+                <label asp-for="File" class="control-label">File with people</label>
+                <input asp-for="File" class="form-control" />
+                <span asp-validation-for="File" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <input type="submit" value="Create" class="btn btn-primary" />

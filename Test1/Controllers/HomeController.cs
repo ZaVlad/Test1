@@ -1,4 +1,5 @@
-﻿using MediatR;
+﻿using Entities.Models;
+using MediatR;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
@@ -10,6 +11,8 @@ using System.Linq;
 using System.Threading.Tasks;
 using Test1.Models;
 using Test1.Models.RequestModels.Persons;
+using UseCases.Models;
+using UseCases.Persons.Command.Create;
 using UseCases.Persons.Queries.GetList;
 
 namespace Test1.Controllers
@@ -48,30 +51,34 @@ namespace Test1.Controllers
             return View();
         }
         [HttpPost]
-        public IActionResult Create(PersonCreateRequestModel fileWithPeople)
+        public async Task<IActionResult> Create(PersonCreateByFileRequestModel fileWithPeople)
         {
             if (ModelState.IsValid == false)
             {
                 return View(fileWithPeople);
             }
 
-            if (fileWithPeople.FileUpload is null)
+            if (fileWithPeople.File is null)
             {
-                ModelState.AddModelError("FileUpload","You have to upload some file");
+                ModelState.AddModelError($"{nameof(fileWithPeople.File)}", "You have to upload some file");
                 return View(fileWithPeople);
             }
-            var extension = Path.GetExtension(fileWithPeople.FileUpload.FileName);
+            var extension = Path.GetExtension(fileWithPeople.File.FileName);
 
             if(extension.ToLower() != correctExtension)
             {
-                ModelState.AddModelError("FileUpload", "You have gave wrong type of file, try file with csv extension");
+                ModelState.AddModelError($"{nameof(fileWithPeople.File)}", "You have gave wrong type of file, try file with csv extension");
                 return View(fileWithPeople);
             }
+           var result = await _sender.Send(new CreatePersonCommand() 
+            { FileWithPeople = new CreatePersonByFileDto() { 
+                File = fileWithPeople.File} });
 
-            byte[] array = new byte[fileWithPeople.FileUpload.Length];
-            fileWithPeople.FileUpload.OpenReadStream().Read(array, 0, array.Length);
-            string peopleFromFile = System.Text.Encoding.Default.GetString(array);
-
+            if(result == false)
+            {
+                ModelState.AddModelError($"{nameof(fileWithPeople.File)}", "Something went wrong with proccessing data from file");
+                return View(fileWithPeople);
+            }
 
             return RedirectToAction("Index");
         }
